@@ -1,0 +1,40 @@
+Lagrange Interpolation & Application in recursive problems(DP).
+
+Q. What is Lagrange Interpolation ? 
+A. https://brilliant.org/wiki/lagrange-interpolation/
+tl;dr : Lagrange interpolaton is a method of constructing a polynomial function(hence estimating new data points) given a set of discrete data points.
+
+Simple Mathematical analogy.
+
+Given:
+f(x) is a unique (n - 1) degree polynomial.
+
+f(x) = a + a1x + a2x^2 + .....anx^n
+
+f(x1) = y1, fx(x2) = y2, f(x3) = y3 ...... f(xn-1) = yn-1.
+
+Find:
+f(xn)
+
+Time complexity: 
+O(n^2), if x1, x2, are discrete points.
+O(n), O(nlogn) if x1, x2 , x3 are continuous points. 
+Think precomputaion, convoluting around a point + binary exponenetaion to reduce the complexity for the inner computations o O(n).
+
+Application in dynamic Programmng and solving recursive problems:
+
+Given : 
+f(x) = i + i^2 + i^3 +..... i^k, k <= 1e6, 
+
+Find: 
+f(1) + f(2) + f(3) + f(4) + ......f(n), n <= 1e12.
+
+Solution:
+1. Interpolate the function f(x), since it is (k + 1)th degree polynomial, find(k + 2) data points
+leveraging this relation f(x) = f(x - 1) + x^k.
+
+Problems:
+https://www.spoj.com/problems/SOMESUMS/
+https://www.spoj.com/problems/ASUMHARD/
+https://www.codechef.com/problems/COUNTIT
+https://codeforces.com/problemset/problem/622/F
